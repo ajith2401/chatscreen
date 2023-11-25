@@ -125,8 +125,8 @@ const recentMessages = [
         </List> 
         </Box>
       </Box>
-      <Box className={classes.recentMessages}>
       <Typography>RECENT MESSAGE</Typography>
+      <Box className={classes.recentMessages}>
        <List>
        {recentMessages.map((message, index) => (
          <ListItem key={index} className={classes.recentMessageItem}>

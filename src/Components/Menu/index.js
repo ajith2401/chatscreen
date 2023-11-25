@@ -94,7 +94,7 @@ const Footer = () => {
         </Typography>
       </div>
       <Typography className={classes.bannerText}>
-        Example Text Under Banner
+      Kleon Clean Admin Dashboard
       </Typography>
     </div>
   );
