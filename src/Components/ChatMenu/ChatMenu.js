@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Divider, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Paper, Typography, makeStyles } from '@material-ui/core';
+import { Avatar, Divider, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Typography, makeStyles } from '@material-ui/core';
 import GroupIcon from '@material-ui/icons/Group';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,14 +23,12 @@ const useStyles = makeStyles((theme) => ({
     width: "340px",
     height: "50px",
     top: "402px",
-    left: "395px"
-    
-    
+    left: "395px" 
   },
   recentMessages: {
     width: '340px',
     height: '507px',
-    overflowY: 'auto', // Use scroll if the content overflows vertically
+    overflowY: 'auto', 
   },
   recentMessageItem: {
     width: '340px', 
@@ -58,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   body: {
     width: '201px',
-    fontFamily: 'Open Sans',
+    fontFamily: 'Cairo, sans-serif',
     fontSize: '14px',
     fontWeight: '400',
     lineHeight: '19px',

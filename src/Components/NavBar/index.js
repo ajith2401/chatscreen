@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
       searchText: {
         width: '81px',
         height: '30px',
-        fontFamily: 'Cairo',
+       fontFamily: 'Cairo, sans-serif',
         fontSize: '16px',
         fontWeight: '600',
         lineHeight: '30px',
@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
       otherMenu: {
         width: '105px',
         height: '30px',
-        fontFamily: 'Cairo',
+       fontFamily: 'Cairo, sans-serif',
         fontSize: '16px',
         fontWeight: '700',
         lineHeight: '30px',

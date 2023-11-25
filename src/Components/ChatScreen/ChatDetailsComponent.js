@@ -18,19 +18,17 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '14px',
     top: "149px",
     left: "774px"
-
-    /* Other styles */
   },
   chatTitles: {
     display: "flex",
     flexDirection: "row",
     height: '90px',
     borderRadius: '14px',
-    /* Other styles */
+   
   },
   chatInput: {
     height: '92px',
-    /* Other styles */
+   
   },
   chatActions: {
     width: '288px',
@@ -61,10 +59,9 @@ const useStyles = makeStyles((theme) => ({
     width: '1036px',
     height: '92px',
     borderRadius: '14px',
-    border: '2px solid #000000', // Replace with your desired border color
-    padding: theme.spacing(2), // Adjust padding as needed
+    border: '2px solid #000000',
     position: 'absolute',
-    boxSizing: 'border-box', // Make sure padding and border fit within the defined width and height
+    boxSizing: 'border-box', 
   },
   avatar:{
     width:" 58px",
@@ -74,8 +71,8 @@ const useStyles = makeStyles((theme) => ({
   messageText: {
     width: '764px',
     height: '125px',
-    borderRadius: '14px 14px 14px 0px', // To get different border radii for each corner
-    fontFamily: 'Open Sans',
+    borderRadius: '14px 14px 14px 0px',
+    fontFamily: 'Cairo, sans-serif',
     fontSize: '14px',
     fontWeight: 400,
     lineHeight: '20px',
@@ -85,9 +82,9 @@ const useStyles = makeStyles((theme) => ({
   name: {
     width: '80px',
     height: '20px',
-    top: '295px', // Positioning properties may not apply directly here in the same way
-    left: '909px', // Positioning properties may not apply directly here in the same way
-    fontFamily: 'Cairo',
+    top: '295px', 
+    left: '909px', 
+    a: 'Cairo',
     fontSize: '16px',
     fontWeight: 700,
     lineHeight: '20px',
@@ -168,7 +165,7 @@ const ChatDetailsComponent = () => {
     >
       <Box py={1}>
       <Typography variant="subtitle2" sx={{
-        fontFamily: 'Cairo',
+       fontFamily: 'Cairo, sans-serif',
         fontSize: '16px',
         fontWeight: 1000,
         lineHeight: '20px',
