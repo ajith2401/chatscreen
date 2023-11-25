@@ -9,10 +9,11 @@ import TextFormatIcon from '@material-ui/icons/TextFormat';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
 import GroupIcon from '@material-ui/icons/Group'
+import { AvatarGroup } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
   chatDetails: {
-    height: '80vh',
+    height: '82vh',
     width: "700px",
     position: 'absolute',
     border: '1px solid #ccc',
@@ -26,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     height: '90px',
     borderRadius: '14px',
+    top: "149px",
+    left: "774px",
+    background:"white"
   },
   chatInput: {
     height: '92px',
@@ -67,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
     
   },
   customInput: {
-    width: '1036px',
     height: '92px',
     borderRadius: '14px',
     border: '2px solid #000000',
@@ -119,38 +122,35 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 'auto',
     },
   },
-  title:{
-    zIndex:10
-  },
   groupIcon: {
     width: '24px',
     height: '24px',
     position: 'absolute',
-    top: '175px',
-    left: '804px',
   },
   groupText: {
-    width: '330px', // Adjust width as needed
+    width: '330px', 
     height: 'auto',
     position: 'absolute',
-    top: '175px',
-    left: '830px', // Adjust as needed
-    color: '#000000', // Set your desired text color
+    color: '#000000', 
   },
   peopleLayout: {
-    width: '168px',
+    width: '80px',
     height: '40px',
     position: 'absolute',
-    top: '174px',
     display: 'flex',
     alignItems: 'center',
+    left:"500px",
+    padding:"0",
+    margin:"0"
   },
   avatarTitle: {
     width: '40px',
     height: '40px',
     position: 'relative',
-    marginLeft: theme.spacing(1), // Adjust as needed for spacing between avatars
+    marginLeft: theme.spacing(1), 
     border: '2px solid #FFFFFF',
+    padding:"0",
+    margin:"0"
   },
 
 }));
@@ -200,10 +200,30 @@ const ChatDetailsComponent = () => {
     },
   ];
   return (
-    <Box>
-
     <Box className={classes.chatDetails}>
-    <List style={{ height: '68vh', overflow: 'auto' ,justifyContent:"center"}} variant={Paper} ref={messagesContainerRef} gap="10px"
+    <Box className={classes.chatTitles}>
+    <GroupIcon className={classes.groupIcon} />
+    <Typography className={classes.groupText} variant="body1">
+      We Are Designer
+      <br />
+      We share about daily life as designers in the world
+    </Typography>
+    <Box className={classes.peopleLayout}>
+    <AvatarGroup max={4}>
+      {avatarImages.map((avatar, index) => (
+        <Avatar
+          key={index}
+          alt={`Avatar ${index + 1}`}
+          src={avatar}
+          className={classes.avatarTitle}
+        />
+      ))}
+    </AvatarGroup>
+  </Box>
+  </Box>
+  <Divider/>
+    <Box >
+    <List style={{ height: '55vh', overflow: 'auto' ,justifyContent:"center"}} variant={Paper} ref={messagesContainerRef} gap="10px"
     padding="0">
   {messages.flat().map((msg, index) => (
     msg.messageText ?   
