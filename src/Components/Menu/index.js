@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
   menuItem: {
     width: '345px',
     height: '50px',
-    borderBottom: '1px solid #ccc',
     display: 'flex',
     alignItems: 'center',
     paddingLeft: '15px',

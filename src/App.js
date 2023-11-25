@@ -1,4 +1,5 @@
 import ChatScreen from './Components/Main';
+import "./App.css"
 
 function App() {
   return (

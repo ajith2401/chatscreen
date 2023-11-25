@@ -1,4 +1,4 @@
-import { makeStyles, InputBase, Typography, Avatar, Menu, MenuItem, IconButton, Badge, colors, Box } from '@material-ui/core';
+import { makeStyles, InputBase, Typography, Avatar, Menu, MenuItem, IconButton, Badge, Box } from '@material-ui/core';
 import React, { useState } from 'react';
 import {
   AppBar,
@@ -198,7 +198,10 @@ const NavBar = () => {
 
         {/* Language Selector */}
         <IconButton>
-          <LanguageIcon />
+        <LanguageIcon />
+        <Typography>English</Typography>
+        <ArrowDropDownIcon />
+         
         </IconButton>
 
         {/* Profile */}

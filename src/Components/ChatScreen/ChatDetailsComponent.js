@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Avatar, Box, Divider, Grid, List, ListItem, ListItemText, Paper, TextField, Typography, makeStyles } from '@material-ui/core';
+import { Avatar, Box, Button, Divider, Grid, List, ListItem, ListItemText, Paper, TextField, Typography, makeStyles } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import SendIcon from '@material-ui/icons/Send';
 import AttachmentIcon from '@material-ui/icons/Attachment';
@@ -8,23 +8,24 @@ import UndoIcon from '@material-ui/icons/Undo';
 import TextFormatIcon from '@material-ui/icons/TextFormat';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
+import GroupIcon from '@material-ui/icons/Group'
 
 const useStyles = makeStyles((theme) => ({
   chatDetails: {
-    height: '82vh',
+    height: '80vh',
     width: "700px",
     position: 'absolute',
     border: '1px solid #ccc',
     borderRadius: '14px',
     top: "149px",
-    left: "774px"
+    left: "774px",
+    padding:"10px"
   },
   chatTitles: {
     display: "flex",
     flexDirection: "row",
     height: '90px',
     borderRadius: '14px',
-   
   },
   chatInput: {
     height: '92px',
@@ -39,21 +40,31 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    margin:"5px",
+    gap:"10px",
   },
   rightActions: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end', // Align to the right
+    margin:"5px",
+    justifyContent: 'flex-end',
+    gap:"10px",
   },
   actionIcons: {
     fontSize: '24px',
     height: '24px',
   },
-
+  actionIconsUndo: {
+    fontSize: '24px',
+    height: '24px',
+    transform: 'rotate(-180deg)'
+  },
   sendButton: {
-    width: '155px',
-    height: '52px',
+    width: '150px',
+    height: '40px',
     borderRadius: '14px',
+    background: 'linear-gradient(90deg, #6418C3 50%, #AB18C3 100%)',
+    
   },
   customInput: {
     width: '1036px',
@@ -108,12 +119,53 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 'auto',
     },
   },
+  title:{
+    zIndex:10
+  },
+  groupIcon: {
+    width: '24px',
+    height: '24px',
+    position: 'absolute',
+    top: '175px',
+    left: '804px',
+  },
+  groupText: {
+    width: '330px', // Adjust width as needed
+    height: 'auto',
+    position: 'absolute',
+    top: '175px',
+    left: '830px', // Adjust as needed
+    color: '#000000', // Set your desired text color
+  },
+  peopleLayout: {
+    width: '168px',
+    height: '40px',
+    position: 'absolute',
+    top: '174px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  avatarTitle: {
+    width: '40px',
+    height: '40px',
+    position: 'relative',
+    marginLeft: theme.spacing(1), // Adjust as needed for spacing between avatars
+    border: '2px solid #FFFFFF',
+  },
 
 }));
 
 const ChatDetailsComponent = () => {
   const messagesContainerRef = useRef();
   const classes = useStyles();
+  const avatarImages = [
+    'avatar1.jpg',
+    'avatar2.jpg',
+    'avatar3.jpg',
+    'avatar4.jpg',
+    'avatar5.jpg',
+  ];
+
   const messages = [
     {
       name: 'Kevin Julios',
@@ -148,8 +200,11 @@ const ChatDetailsComponent = () => {
     },
   ];
   return (
+    <Box>
+
     <Box className={classes.chatDetails}>
-    <List style={{ height: '68vh', overflow: 'auto' ,justifyContent:"center"}} variant={Paper} ref={messagesContainerRef}>
+    <List style={{ height: '68vh', overflow: 'auto' ,justifyContent:"center"}} variant={Paper} ref={messagesContainerRef} gap="10px"
+    padding="0">
   {messages.flat().map((msg, index) => (
     msg.messageText ?   
     <ListItem key={index} >
@@ -205,30 +260,34 @@ const ChatDetailsComponent = () => {
         label="Type your message..."
         variant="outlined"
         name="messageText"
+        sx={{
+          backgroundColor: "#6418C3"
+        }}
       />
     </Grid>
     <Grid container direction="row" justifyContent="center">
     <Grid item xs={6}>
       <Box className={classes.chatActions}>
         <UndoIcon className={classes.actionIcons} />
-        <UndoIcon className={classes.actionIcons} />
+        <UndoIcon className={classes.actionIconsUndo} />
         <TextFormatIcon className={classes.actionIcons} />
         <FormatBoldIcon className={classes.actionIcons} />
         <FormatItalicIcon className={classes.actionIcons} />
         <FormatBoldIcon className={classes.actionIcons} />
       </Box>
     </Grid>
-    <Grid item xs={6}>
+    <Grid item xs={6} >
       <Box className={classes.rightActions}>
         <MoodIcon className={classes.actionIcons} />
         <AttachmentIcon className={classes.actionIcons} />
-        <IconButton className={classes.sendButton} color="primary">
-          <SendIcon />
-        </IconButton>
+        <Button  variant="contained" className={classes.sendButton} >
+          <SendIcon /> Send
+        </Button>
       </Box>
     </Grid>
   </Grid>
       
+    </Box>
     </Box>
   );
 };

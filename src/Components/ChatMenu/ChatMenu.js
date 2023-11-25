@@ -1,50 +1,53 @@
 import React from 'react';
-import { Avatar, Divider, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Typography, makeStyles } from '@material-ui/core';
+import { Avatar, Box, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Typography, makeStyles } from '@material-ui/core';
 import GroupIcon from '@material-ui/icons/Group';
 
 const useStyles = makeStyles((theme) => ({
   chatMenus: {
     width: '340px',
-    height: '927px',
+    height: '80vh',
     top: '150px',
     left: '395px',
     position: 'absolute',
     border: '1px solid #ccc',
     borderRadius: '14px',  
+    padding:"10px"
   },
   group: {
     width: "340px",
-    height: "332px",
+    height: "35vh",
     left: "395px" ,
     justifyContent: 'center',
     alignItems: 'center',
   },
   groupItem: {
     width: "340px",
-    height: "50px",
-    top: "402px",
     left: "395px" 
   },
   recentMessages: {
     width: '340px',
-    height: '507px',
+    height: '45vh',
     overflowY: 'auto', 
   },
   recentMessageItem: {
     width: '340px', 
     display:"flex",
     flexDirection:"row",
-    gap:"20px"
-  
+    gap:"10px",
+    padding:"0"
   },
   newBatch: {
     width: '46px',
-    borderRadius: theme.spacing(1),
+    borderRadius: "14px",
+    height: "24px",
     background: '#6418C3',
     color: '#fff', 
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    position: "absolute",
+    top: "0",
+    right: "10px",
   },
   name: {
     fontFamily: 'Cairo, sans-serif',
@@ -104,32 +107,26 @@ const recentMessages = [
   
 
   return (
-    <div className={classes.chatMenus}>
-    
-      <div className={classes.group}>
-      <Typography>Group</Typography>  
-        <div className={classes.groupItem}> 
-          <List>
+    <Box className={classes.chatMenus}>
+      <Box className={classes.group}>
+      <Typography>Group</Typography> 
+        <Box className={classes.groupItem}> 
+         <List>
           {grpArray.map((group, index) => (
-            <div key={index} className={classes.groupItem}>
+            <Box key={index} className={classes.groupItem}>
               <ListItem>
                 <ListItemIcon>
                   <GroupIcon /> 
                 </ListItemIcon>
                 <ListItemText primary={group} />
               </ListItem>
-              {index !== grpArray.length - 1 && <Divider/>} 
-            </div>
+            </Box>
           ))}
         </List> 
-        </div>
-       
-       
-      </div>
-
+        </Box>
+      </Box>
+      <Box className={classes.recentMessages}>
       <Typography>RECENT MESSAGE</Typography>
-      <div className={classes.recentMessages}>
-      
        <List>
        {recentMessages.map((message, index) => (
          <ListItem key={index} className={classes.recentMessageItem}>
@@ -137,14 +134,14 @@ const recentMessages = [
              <Avatar src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpkNcRBQ5BaqXi-RlKX7jFeA91WvcLlISI3TszrIuS8Q&s' className={classes.avatar} />
            </ListItemAvatar>
            <ListItemText>
-             <div>
+             <Box>
                <Typography className={classes.name} variant="h6">
                  {message.name}
                </Typography>
                {message.isNew && (
-                 <div className={classes.newBatch}>NEW</div>
+                 <Box className={classes.newBatch}>NEW</Box>
                )}
-             </div>
+             </Box>
              <Typography className={classes.body} variant="body1">
                {message.message}
              </Typography>
@@ -153,8 +150,8 @@ const recentMessages = [
        ))}
      </List>
       
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

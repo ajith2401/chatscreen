@@ -2,15 +2,16 @@ import React from 'react';
 import NavBar from '../NavBar';
 import Menu from '../Menu';
 import ChatHeader from '../ChatHead';
+import { Box } from '@material-ui/core';
 
 
 const ChatScreen = () => {
   return (
-    <div > 
+    <Box> 
       <NavBar />
       <Menu />
       <ChatHeader/>
-    </div>
+    </Box>
   );
 };
 
